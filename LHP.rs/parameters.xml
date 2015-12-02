@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<parameters>
+					<parameter name="alteration" displayName="Total landscape alteration" type="java.lang.Double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="patch_size" displayName="Alteration patch size" type="java.lang.Double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="randomSeed" displayName="Default Random Seed" type="int" 
+						defaultValue="__NULL__"
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="Death_env" displayName="Death rate: in env" type="int" 
+						defaultValue="16" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="prob_ingest" displayName="Prob of ingestion" type="java.lang.Double" 
+						defaultValue="0.0000903" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="dbh_cost" displayName="dbh cost" type="java.lang.Double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="Death_host" displayName="Death rate: in host" type="int" 
+						defaultValue="225" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="mature_i_l" displayName="Maturation time: to larvae" type="int" 
+						defaultValue="77" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="mature_e_i" displayName="Maturation time: to infectious eggs" type="int" 
+						defaultValue="27" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="reproduction_larvae" displayName="Reproduciton rate: larvae" type="java.lang.Double" 
+						defaultValue="0.369463" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="survival_host" displayName="% of ingested eggs survive to adult" type="java.lang.Double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="max_burden" displayName="Max burden in host" type="int" 
+						defaultValue="5137" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+		</parameters>
+
+

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<sweep runs="1">
+	<parameter name="randomSeed" type="number" constant_type="number"
+		value="1234" />
+	<parameter name="Death_host" type="number" constant_type="number"
+		value="1.0" />
+	<parameter name="Death_env" type="number" constant_type="number"
+		value="2.0" />
+	<parameter name="mature_e_i" type="number" constant_type="number"
+		value="3.0" />
+	<parameter name="mature_i_l" type="number" constant_type="number"
+		value="4.0" />
+	<parameter name="reproduction_larvae" type="number"
+		constant_type="number" value="5.0" />
+	<parameter name="prob_ingest" type="number" constant_type="number"
+		value="6.0" />
+</sweep>

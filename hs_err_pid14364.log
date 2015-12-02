@@ -1,0 +1,217 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x77e0331f, pid=14364, tid=2356
+#
+# JRE version: 6.0_31-b05
+# Java VM: Java HotSpot(TM) Client VM (20.6-b01 mixed mode windows-x86 )
+# Problematic frame:
+# C  [ntdll.dll+0x3331f]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x02f8d400):  JavaThread "JDWP Command Reader" daemon [_thread_in_vm, id=2356, stack(0x09a70000,0x0a470000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x00000004
+
+Registers:
+EAX=0x0036c1c8, EBX=0x0036c148, ECX=0x00000000, EDX=0x00000000
+ESP=0x0a46f7a4, EBP=0x0a46f7cc, ESI=0x0036c1c0, EDI=0x00360000
+EIP=0x77e0331f, EFLAGS=0x00010246
+
+Top of Stack: (sp=0x0a46f7a4)
+0x0a46f7a4:   00360000 0036c160 00000000 599ca304
+0x0a46f7b4:   00000000 02f4ad10 00000000 0eb5ec00
+0x0a46f7c4:   00000009 00000048 0a46f8c4 77e035a7
+0x0a46f7d4:   00000009 0036c1c0 0a46f894 00000000
+0x0a46f7e4:   73d8b3d5 00000000 00360000 0036c168
+0x0a46f7f4:   0a46f854 77e35349 77ed42e0 0a46f838
+0x0a46f804:   00000022 00000002 00000000 0a46f854
+0x0a46f814:   00000000 00360000 00360150 73d8b345 
+
+Instructions: (pc=0x77e0331f)
+0x77e032ff:   46 02 38 46 03 0f 85 8c 70 05 00 80 7d 14 00 0f
+0x77e0330f:   85 90 70 05 00 8b 56 0c 8d 46 08 8b 08 89 4d f0
+0x77e0331f:   8b 49 04 89 55 f4 8b 12 3b d1 0f 85 19 54 00 00
+0x77e0332f:   3b d0 0f 85 11 54 00 00 0f b7 06 29 47 78 8b 87 
+
+
+Register to memory mapping:
+
+EAX=0x0036c1c8 is an unknown value
+EBX=0x0036c148 is an unknown value
+ECX=0x00000000 is an unknown value
+EDX=0x00000000 is an unknown value
+ESP=0x0a46f7a4 is pointing into the stack for thread: 0x02f8d400
+EBP=0x0a46f7cc is pointing into the stack for thread: 0x02f8d400
+ESI=0x0036c1c0 is an unknown value
+EDI=0x00360000 is an unknown value
+
+
+Stack: [0x09a70000,0x0a470000],  sp=0x0a46f7a4,  free space=10237k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [ntdll.dll+0x3331f]  RtlImageNtHeader+0x19b
+C  [ntdll.dll+0x335a7]  RtlImageNtHeader+0x423
+C  [ntdll.dll+0x33492]  RtlImageNtHeader+0x30e
+C  [kernel32.dll+0x114dd]  HeapFree+0x14
+C  [msvcr71.dll+0x218a]  free+0x39
+V  [jvm.dll+0x102c97]
+C  [jdwp.dll+0x9d98]  Agent_OnUnload+0x2f5
+C  [jdwp.dll+0xa0a6]  Agent_OnUnload+0x603
+C  [jdwp.dll+0x1a200]  Agent_OnLoad+0xf175
+C  [dt_socket.dll+0x1074]
+C  [dt_socket.dll+0x1a88]
+C  [jdwp.dll+0x18171]  Agent_OnLoad+0xd0e6
+V  [jvm.dll+0xd10b7]
+V  [jvm.dll+0x140ffc]
+C  [msvcr71.dll+0x9565]  endthreadex+0xa0
+C  [kernel32.dll+0x133aa]  BaseThreadInitThunk+0x12
+C  [ntdll.dll+0x39ef2]  RtlInitializeExceptionChain+0x63
+C  [ntdll.dll+0x39ec5]  RtlInitializeExceptionChain+0x36
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0e9a6000 JavaThread "Image Fetcher 0" daemon [_thread_blocked, id=13580, stack(0x60130000,0x60b30000)]
+  0x0e83f800 JavaThread "Timer-0" daemon [_thread_blocked, id=12764, stack(0x61530000,0x61f30000)]
+  0x0e842400 JavaThread "WeakCollectionCleaner" daemon [_thread_blocked, id=11132, stack(0x60b30000,0x61530000)]
+  0x0036b000 JavaThread "DestroyJavaVM" [_thread_blocked, id=12724, stack(0x02490000,0x02e90000)]
+  0x0af8e000 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=14776, stack(0x5e210000,0x5ec10000)]
+  0x0af46000 JavaThread "AWT-Shutdown" [_thread_blocked, id=6216, stack(0x0bf60000,0x0c960000)]
+  0x0991e800 JavaThread "TimerQueue" daemon [_thread_blocked, id=13092, stack(0x5ec10000,0x5f610000)]
+  0x09a48c00 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=5044, stack(0x0b560000,0x0bf60000)]
+  0x02f8e800 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=14688, stack(0x0a470000,0x0ae70000)]
+  0x02f8e000 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=12396, stack(0x08110000,0x08160000)]
+=>0x02f8d400 JavaThread "JDWP Command Reader" daemon [_thread_in_vm, id=2356, stack(0x09a70000,0x0a470000)]
+  0x02f89400 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=6804, stack(0x08e70000,0x09870000)]
+  0x02f85800 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_in_vm, id=13868, stack(0x08470000,0x08e70000)]
+  0x02f78800 JavaThread "Attach Listener" daemon [_thread_blocked, id=13512, stack(0x07340000,0x07d40000)]
+  0x02f75800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=4392, stack(0x06900000,0x07300000)]
+  0x02f49800 JavaThread "Finalizer" daemon [_thread_blocked, id=2520, stack(0x05ec0000,0x068c0000)]
+  0x02f45000 JavaThread "Reference Handler" daemon [_thread_blocked, id=15252, stack(0x05480000,0x05e80000)]
+
+Other Threads:
+  0x02f41000 VMThread [stack: 0x05430000,0x05480000] [id=12600]
+
+VM state:synchronizing (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x003690f8] Threads_lock - owner thread: 0x02f41000
+
+Heap
+ def new generation   total 55104K, used 1995K [0x0f010000, 0x12bd0000, 0x280b0000)
+  eden space 49024K,   4% used [0x0f010000, 0x0f202e20, 0x11ff0000)
+  from space 6080K,   0% used [0x125e0000, 0x125e0000, 0x12bd0000)
+  to   space 6080K,   0% used [0x11ff0000, 0x11ff0000, 0x125e0000)
+ tenured generation   total 122296K, used 58753K [0x280b0000, 0x2f81e000, 0x5a210000)
+   the space 122296K,  48% used [0x280b0000, 0x2ba10610, 0x2ba10800, 0x2f81e000)
+ compacting perm gen  total 29184K, used 28970K [0x5a210000, 0x5be90000, 0x5e210000)
+   the space 29184K,  99% used [0x5a210000, 0x5be5a810, 0x5be5aa00, 0x5be90000)
+No shared spaces configured.
+
+Code Cache  [0x02f90000, 0x033d8000, 0x04f90000)
+ total_blobs=2381 nmethods=2132 adapters=192 free_code_cache=29079104 largest_free_block=256
+
+Dynamic libraries:
+0x00400000 - 0x00425000 	C:\RepastSimphony-2.0\eclipse\jre\bin\javaw.exe
+0x77dd0000 - 0x77f50000 	C:\Windows\SysWOW64\ntdll.dll
+0x76150000 - 0x76260000 	C:\Windows\syswow64\kernel32.dll
+0x75cf0000 - 0x75d37000 	C:\Windows\syswow64\KERNELBASE.dll
+0x77310000 - 0x773b0000 	C:\Windows\syswow64\ADVAPI32.dll
+0x75510000 - 0x755bc000 	C:\Windows\syswow64\msvcrt.dll
+0x75970000 - 0x75989000 	C:\Windows\SysWOW64\sechost.dll
+0x755c0000 - 0x756b0000 	C:\Windows\syswow64\RPCRT4.dll
+0x754b0000 - 0x75510000 	C:\Windows\syswow64\SspiCli.dll
+0x754a0000 - 0x754ac000 	C:\Windows\syswow64\CRYPTBASE.dll
+0x76260000 - 0x76360000 	C:\Windows\syswow64\USER32.dll
+0x756f0000 - 0x75780000 	C:\Windows\syswow64\GDI32.dll
+0x756d0000 - 0x756da000 	C:\Windows\syswow64\LPK.dll
+0x75da0000 - 0x75e3d000 	C:\Windows\syswow64\USP10.dll
+0x75f40000 - 0x75fa0000 	C:\Windows\system32\IMM32.DLL
+0x75e70000 - 0x75f3c000 	C:\Windows\syswow64\MSCTF.dll
+0x74e00000 - 0x74e32000 	C:\Windows\SysWOW64\nvinit.dll
+0x0f000000 - 0x0f006000 	C:\Program Files (x86)\NVIDIA Corporation\CoProcManager\_etoured.dll
+0x73520000 - 0x7355c000 	C:\Program Files (x86)\NVIDIA Corporation\CoProcManager\nvd3d9wrap.dll
+0x75b40000 - 0x75cdd000 	C:\Windows\syswow64\SETUPAPI.dll
+0x75e40000 - 0x75e67000 	C:\Windows\syswow64\CFGMGR32.dll
+0x76360000 - 0x763ef000 	C:\Windows\syswow64\OLEAUT32.dll
+0x77120000 - 0x7727c000 	C:\Windows\syswow64\ole32.dll
+0x756b0000 - 0x756c2000 	C:\Windows\syswow64\DEVOBJ.dll
+0x73560000 - 0x7359b000 	C:\Program Files (x86)\NVIDIA Corporation\CoProcManager\nvdxgiwrap.dll
+0x7c340000 - 0x7c396000 	C:\RepastSimphony-2.0\eclipse\jre\bin\msvcr71.dll
+0x6d7f0000 - 0x6da9f000 	C:\RepastSimphony-2.0\eclipse\jre\bin\client\jvm.dll
+0x749d0000 - 0x74a02000 	C:\Windows\system32\WINMM.dll
+0x71d50000 - 0x71d9c000 	C:\Windows\system32\apphelp.dll
+0x6d7a0000 - 0x6d7ac000 	C:\RepastSimphony-2.0\eclipse\jre\bin\verify.dll
+0x6d320000 - 0x6d33f000 	C:\RepastSimphony-2.0\eclipse\jre\bin\java.dll
+0x6d370000 - 0x6d399000 	C:\RepastSimphony-2.0\eclipse\jre\bin\jdwp.dll
+0x6d690000 - 0x6d696000 	C:\RepastSimphony-2.0\eclipse\jre\bin\npt.dll
+0x6d7e0000 - 0x6d7ef000 	C:\RepastSimphony-2.0\eclipse\jre\bin\zip.dll
+0x6d200000 - 0x6d207000 	C:\RepastSimphony-2.0\eclipse\jre\bin\dt_socket.dll
+0x773b0000 - 0x773e5000 	C:\Windows\syswow64\WS2_32.dll
+0x75a10000 - 0x75a16000 	C:\Windows\syswow64\NSI.dll
+0x70360000 - 0x70370000 	C:\Windows\system32\NLAapi.dll
+0x70350000 - 0x70360000 	C:\Windows\system32\napinsp.dll
+0x70330000 - 0x70342000 	C:\Windows\system32\pnrpnsp.dll
+0x746e0000 - 0x7471c000 	C:\Windows\System32\mswsock.dll
+0x705f0000 - 0x70634000 	C:\Windows\system32\DNSAPI.dll
+0x70320000 - 0x70328000 	C:\Windows\System32\winrnr.dll
+0x70310000 - 0x7031d000 	C:\Windows\system32\wshbth.dll
+0x702e0000 - 0x70307000 	C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live\WLIDNSP.DLL
+0x75ce0000 - 0x75ce5000 	C:\Windows\syswow64\PSAPI.DLL
+0x75d40000 - 0x75d97000 	C:\Windows\syswow64\SHLWAPI.dll
+0x73fe0000 - 0x74001000 	C:\Program Files (x86)\Bonjour\mdnsNSP.dll
+0x74290000 - 0x742ac000 	C:\Windows\system32\Iphlpapi.DLL
+0x74280000 - 0x74287000 	C:\Windows\system32\WINNSI.DLL
+0x73fa0000 - 0x73fd8000 	C:\Windows\System32\fwpuclnt.dll
+0x73f90000 - 0x73f96000 	C:\Windows\system32\rasadhlp.dll
+0x746d0000 - 0x746d5000 	C:\Windows\System32\wshtcpip.dll
+0x6d000000 - 0x6d14c000 	C:\RepastSimphony-2.0\eclipse\jre\bin\awt.dll
+0x72160000 - 0x721b1000 	C:\Windows\system32\WINSPOOL.DRV
+0x71b30000 - 0x71cce000 	C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\COMCTL32.dll
+0x734f0000 - 0x73503000 	C:\Windows\system32\DWMAPI.DLL
+0x73bf0000 - 0x73c70000 	C:\Windows\system32\uxtheme.dll
+0x6d230000 - 0x6d27f000 	C:\RepastSimphony-2.0\eclipse\jre\bin\fontmanager.dll
+0x763f0000 - 0x7703a000 	C:\Windows\system32\shell32.dll
+0x6d600000 - 0x6d613000 	C:\RepastSimphony-2.0\eclipse\jre\bin\net.dll
+0x73f80000 - 0x73f86000 	C:\Windows\System32\wship6.dll
+0x6d620000 - 0x6d629000 	C:\RepastSimphony-2.0\eclipse\jre\bin\nio.dll
+0x0b2f0000 - 0x0b328000 	C:\Program Files\ThinkPad\Bluetooth Software\SysWOW64\BtMmHook.dll
+0x77280000 - 0x77303000 	C:\Windows\syswow64\CLBCatQ.DLL
+0x74d80000 - 0x74d96000 	C:\Windows\system32\CRYPTSP.dll
+0x72020000 - 0x7205b000 	C:\Windows\system32\rsaenh.dll
+0x74e50000 - 0x74e67000 	C:\Windows\system32\USERENV.dll
+0x74e40000 - 0x74e4b000 	C:\Windows\system32\profapi.dll
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:51181 -Xss10M -Xmx1201M -Dfile.encoding=Cp1252 
+java_command: repast.simphony.runtime.RepastMain C:\Users\tbonne1\Dropbox\code\SpatialMemory\LHP_dispersal\LHP/LHP.rs
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.7.0_04\bin
+PATH=C:\RepastSimphony-2.0\eclipse\jre\bin;C:/RepastSimphony-2.0/eclipse/jre/bin/client;C:/RepastSimphony-2.0/eclipse/jre/bin;C:/RepastSimphony-2.0/eclipse/jre/lib/i386;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\ThinkPad\Bluetooth Software\;C:\Program Files\ThinkPad\Bluetooth Software\syswow64;C:\Program Files\Broadcom\WHL\;C:\Program Files\Broadcom\WHL\syswow64;C:\Program Files\Broadcom\WHL\SysWow64\;C:\Program Files\Broadcom\WHL\SysWow64\syswow64;C:\Program Files (x86)\Common Files\Lenovo;C:\Program Files (x86)\Common Files\Ulead Systems\MPEG;C:\Program Files (x86)\Windows Live\Shared;C:\SWTOOLS\ReadyApps;C:\Program Files (x86)\Intel\Services\IPT\;C:\Program Files (x86)\Symantec\VIP Access Client\;C:\Program Files (x86)\PharosSystems\Core;C:\Program Files\SASHome\Secure;C:\Program Files\SASHome\x86\Secure;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v714\runtime\win32;C:\RepastSimphony-2.0\eclipse;
+USERNAME=tbonne1
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 42 Stepping 7, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7601 Service Pack 1
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 42 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht
+
+Memory: 4k page, physical 8269040k(4385268k free), swap 16536224k(12640664k free)
+
+vm_info: Java HotSpot(TM) Client VM (20.6-b01) for windows-x86 JRE (1.6.0_31-b05), built on Feb  3 2012 18:44:09 by "java_re" with MS VC++ 7.1 (VS2003)
+
+time: Tue Mar 26 13:38:26 2013
+elapsed time: 389 seconds
+
