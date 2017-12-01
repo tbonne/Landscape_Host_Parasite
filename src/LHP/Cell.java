@@ -174,7 +174,7 @@ public class Cell {
 
 	public synchronized void exposure(Primate primate){
 
-		//individual gets exposed to each infected fecal deposit in the cell
+		//individual has a probability of getting exposed to each infected fecal deposit in the cell
 		for(int i=0;i<infectiousGroup.size();i++){
 			if(Parameter.probIngestEgg>randomGenerator.nextDouble()){    
 				NGroup_Eggs_Infectious infect = this.getRandomInfectiousGroup();

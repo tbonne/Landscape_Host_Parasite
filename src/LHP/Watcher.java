@@ -16,8 +16,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.StringTokenizer;
 
-import org.apache.commons.math.stat.correlation.PearsonsCorrelation;
-import org.apache.commons.math.stat.descriptive.DescriptiveStatistics;
+import org.apache.commons.math3.stat.correlation.PearsonsCorrelation;
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 import org.rosuda.JRI.Rengine;
 import org.rosuda.REngine.REXP;
 import org.rosuda.REngine.RList;
@@ -60,7 +60,7 @@ public class Watcher {
 	WritableWorkbook workbook;
 	public static long scrambleCount;
 	public static long immigrations;
-	private static double  dist_abun=0,dist_int=0,dist_prev=0, r_naught_abundance=0, r_naught_larvae=0,averageVisits; //k_aggregation=0, k_sd=0,
+	private static double  dist_abun=0,dist_int=0,dist_prev=0, r_naught_abundance=0, r_naught_larvae=0,averageVisits,geomeanVisits; //k_aggregation=0, k_sd=0,
 	Executor executor;
 	public static boolean maxReached=false;
 	BufferedWriter writer3;
@@ -713,16 +713,20 @@ public class Watcher {
 			workbook.write();
 			workbook.close();
 
-
 			//calculate average visit counts
 			averageVisits = 0;
 			long count=0;
+			DescriptiveStatistics stats_visits = new DescriptiveStatistics();
 			for(Cell cell: ModelSetup.getAllCellAgents()){
-				averageVisits = averageVisits + cell.getVisitCount();
-				count++;
+				double v = cell.getVisitCount();
+				if(v > 0)stats_visits.addValue(v);
+				//averageVisits = averageVisits + cell.getVisitCount();
+				//count++;
 			}
 			//System.out.println("count-"+count+" average-"+averageVisits);
-			averageVisits = averageVisits/count;
+			//averageVisits = averageVisits/count;
+			averageVisits = stats_visits.getMean();
+			//geomeanVisits = stats_visits.getGeometricMean();
 			
 			//calculate meadian transmission events by cell
 			DescriptiveStatistics stats_expo = new DescriptiveStatistics();

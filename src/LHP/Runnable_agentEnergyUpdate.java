@@ -22,5 +22,4 @@ public class Runnable_agentEnergyUpdate implements Runnable{
 	    	return;
 	    }
 	}
-
 }

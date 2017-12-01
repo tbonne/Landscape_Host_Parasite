@@ -8,11 +8,8 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
@@ -22,32 +19,20 @@ import javax.swing.JFrame;
 import org.apache.commons.collections15.Transformer;
 
 import com.vividsolutions.jts.geom.Coordinate;
-import com.vividsolutions.jts.geom.Envelope;
 import com.vividsolutions.jts.geom.Geometry;
 import com.vividsolutions.jts.geom.GeometryFactory;
 import com.vividsolutions.jts.geom.Point;
 import java.awt.event.MouseEvent;
 
-import edu.uci.ics.jung.algorithms.cluster.BicomponentClusterer;
 import edu.uci.ics.jung.algorithms.cluster.WeakComponentClusterer;
-import edu.uci.ics.jung.algorithms.layout.AbstractLayout;
-import edu.uci.ics.jung.algorithms.layout.CircleLayout;
-import edu.uci.ics.jung.algorithms.layout.RadialTreeLayout;
-import edu.uci.ics.jung.algorithms.layout.Layout;
 import edu.uci.ics.jung.algorithms.layout.StaticLayout;
 import edu.uci.ics.jung.algorithms.scoring.BetweennessCentrality;
-import edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath;
-import edu.uci.ics.jung.algorithms.shortestpath.DistanceStatistics;
-import edu.uci.ics.jung.algorithms.shortestpath.UnweightedShortestPath;
-import edu.uci.ics.jung.graph.Forest;
 import edu.uci.ics.jung.graph.Graph;
 import edu.uci.ics.jung.graph.UndirectedGraph;
 import edu.uci.ics.jung.graph.UndirectedSparseGraph;
-import edu.uci.ics.jung.visualization.BasicVisualizationServer;
 import edu.uci.ics.jung.visualization.Layer;
 import edu.uci.ics.jung.visualization.VisualizationViewer;
 import edu.uci.ics.jung.visualization.control.GraphMouseListener;
-import edu.uci.ics.jung.visualization.control.ScalingControl;
 
 import LHP.PGMReader;
 import repast.simphony.context.Context;
@@ -62,15 +47,13 @@ import repast.simphony.random.RandomHelper;
 import repast.simphony.space.gis.Geography;
 import repast.simphony.space.gis.GeographyParameters;
 import tools.LandscapeUtils;
-import tools.MoranCal;
 import tools.SimUtils;
 
-import org.apache.commons.math.MathException;
-import org.apache.commons.math.distribution.TDistribution;
-import org.apache.commons.math.distribution.TDistributionImpl;
-import org.apache.commons.math.linear.RealMatrix;
-import org.apache.commons.math.stat.*;
-import org.apache.commons.math.stat.correlation.PearsonsCorrelation;
+
+
+import org.apache.commons.math3.exception.MathRuntimeException;
+import org.apache.commons.math3.distribution.TDistribution;
+import org.apache.commons.math3.stat.correlation.PearsonsCorrelation;
 
 //This file builds the model: creating the environment and populating it with primate hosts and trichuris parasites
 public class ModelSetup implements ContextBuilder<Object>{
@@ -90,7 +73,7 @@ public class ModelSetup implements ContextBuilder<Object>{
 
 	public Context<Object> build(Context<Object> context){
 
-		System.out.println("Running a host-parasite model on a landscape");
+		System.out.println("Running host-parasite-landscape model: spread of whipworm in red colobus monkeys.");
 
 		/********************************
 		 * 								*
@@ -380,12 +363,12 @@ public class ModelSetup implements ContextBuilder<Object>{
 			return getGeog().getGeometry(agent);
 		}
 		public static double getCorrelationPValue(double r,int nObs){
-			TDistribution tDistribution=new TDistributionImpl(nObs - 2);
+			TDistribution tDistribution=new org.apache.commons.math3.distribution.TDistribution(nObs - 2);
 	        double t=Math.abs(r * Math.sqrt((nObs - 2) / (1 - r * r)));
 	        double p =-1;
 	        try{
 	        p = (2 * tDistribution.cumulativeProbability(-t));
-	        } catch (MathException e){
+	        } catch (MathRuntimeException e){
 	        	e.printStackTrace();
 	        }
 	        return p;

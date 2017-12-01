@@ -123,7 +123,7 @@ public class Gut {
 		return lastDefication;
 	}
 	public int getIntensityCount(){
-		return intensityCount;
+		return intensityCount; 
 	}
 	
 }

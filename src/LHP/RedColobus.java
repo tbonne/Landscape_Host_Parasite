@@ -175,6 +175,9 @@ public class RedColobus extends Primate{
 			
 			//record visit to this new location
 			this.myPatch.addVisitCount(1);
+		} else {
+			//record visit to this current location
+			this.myPatch.addVisitCount(1);
 		}
 	}
 	
